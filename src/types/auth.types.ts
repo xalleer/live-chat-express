@@ -1,3 +1,5 @@
+import { User } from './user.types';
+
 export interface RegisterReq {
   username: string;
   password: string;
@@ -5,10 +7,7 @@ export interface RegisterReq {
 
 export interface RegisterRes {
   token: string;
-  user: {
-    username: string;
-    id: string;
-  };
+  user: User;
 }
 
 export type LoginReq = RegisterReq;

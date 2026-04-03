@@ -14,7 +14,7 @@ export class AuthService {
     return {
       token,
       user: {
-        id: user._id.toString(),
+        _id: user._id.toString(),
         username: user.username,
       },
     };
@@ -31,7 +31,7 @@ export class AuthService {
     return {
       token,
       user: {
-        id: user._id.toString(),
+        _id: user._id.toString(),
         username: user.username,
       },
     };
