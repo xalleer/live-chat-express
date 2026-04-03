@@ -7,24 +7,30 @@ import {
   RegisterRes,
 } from '../types/auth.types';
 
-const { registerUser, loginUser } = new AuthService();
+const authService = new AuthService();
 
 export class AuthController {
   public register = async (req: Request, res: Response) => {
     try {
-      const response: RegisterRes = await registerUser(req.body as RegisterReq);
+      const response: RegisterRes = await authService.registerUser(
+        req.body as RegisterReq,
+      );
       return res.status(201).json(response);
-    } catch (e) {
-      return res.status(400).json(e);
+    } catch (e: unknown) {
+      const message = e instanceof Error ? e.message : 'Unknown error';
+      return res.status(400).json({ message });
     }
   };
 
   public login = async (req: Request, res: Response) => {
     try {
-      const response: LoginRes = await loginUser(req.body as LoginReq);
+      const response: LoginRes = await authService.loginUser(
+        req.body as LoginReq,
+      );
       return res.status(200).json(response);
-    } catch (e) {
-      return res.status(400).json(e);
+    } catch (e: unknown) {
+      const message = e instanceof Error ? e.message : 'Unknown error';
+      return res.status(400).json({ message });
     }
   };
 }

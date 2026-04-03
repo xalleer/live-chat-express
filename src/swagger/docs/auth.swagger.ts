@@ -4,7 +4,7 @@ import {
   RegisterReqSchema,
   LoginReqSchema,
   AuthResponseSchema,
-} from '../validation/auth.schemas';
+} from '../../validation/auth.schemas';
 
 export const registerAuthSwagger = (registry: OpenAPIRegistry) => {
   registry.register('RegisterReq', RegisterReqSchema);

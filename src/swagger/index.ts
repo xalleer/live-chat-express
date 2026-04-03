@@ -5,7 +5,7 @@ import {
 import swaggerUi from 'swagger-ui-express';
 import { Application } from 'express';
 
-import { registerAuthSwagger } from '../modules/auth/docs/auth.swagger';
+import { registerAuthSwagger } from './docs/auth.swagger';
 
 export const setupSwagger = (app: Application) => {
   const registry = new OpenAPIRegistry();

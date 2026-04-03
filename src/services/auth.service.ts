@@ -15,24 +15,24 @@ export class AuthService {
       token,
       user: {
         id: user._id.toString(),
-        username: user.username!,
+        username: user.username,
       },
     };
   };
 
   public loginUser = async ({ username, password }: LoginReq) => {
     const user = await User.findOne({ username });
-    if (!user) throw new Error('User not found');
+    if (!user) throw new Error('Invalid credentials');
     if (!user.password) throw new Error('Password not set');
     const isMatch = await bcrypt.compare(password, user.password);
-    if (!isMatch) throw new Error('Invalid password');
+    if (!isMatch) throw new Error('Invalid credentials');
     const token = this.generateToken(user._id.toString());
 
     return {
       token,
       user: {
         id: user._id.toString(),
-        username: user.username!,
+        username: user.username,
       },
     };
   };
