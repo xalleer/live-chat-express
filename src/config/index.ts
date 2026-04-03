@@ -5,7 +5,7 @@ interface EnvConfig {
   port: string;
   db_uri: string;
   secret_token: string;
-  salt_round: number;
+  salt_round: string;
 }
 
 const requiredEnv = ['PORT', 'DB_URI', 'SECRET_TOKEN', 'SALT_ROUND'] as const;

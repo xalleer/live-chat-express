@@ -38,7 +38,7 @@ export class AuthService {
   };
 
   private generatePasswordHash = async (password: string): Promise<string> => {
-    const salt = await bcrypt.genSalt(config.salt_round);
+    const salt = await bcrypt.genSalt(Number(config.salt_round));
     return bcrypt.hash(password, salt);
   };
 

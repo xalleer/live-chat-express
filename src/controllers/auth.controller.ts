@@ -15,7 +15,7 @@ export class AuthController {
       const response: RegisterRes = await registerUser(req.body as RegisterReq);
       return res.status(201).json(response);
     } catch (e) {
-      return res.status(400).json({ message: e });
+      return res.status(400).json(e);
     }
   };
 
@@ -24,7 +24,7 @@ export class AuthController {
       const response: LoginRes = await loginUser(req.body as LoginReq);
       return res.status(200).json(response);
     } catch (e) {
-      return res.status(400).json({ message: e });
+      return res.status(400).json(e);
     }
   };
 }
