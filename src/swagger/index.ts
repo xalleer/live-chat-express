@@ -6,6 +6,7 @@ import swaggerUi from 'swagger-ui-express';
 import { Application } from 'express';
 
 import { registerAuthSwagger } from './docs/auth.swagger';
+import { registerRoomSwagger } from './docs/room.swagger';
 
 export const setupSwagger = (app: Application) => {
   const registry = new OpenAPIRegistry();
@@ -17,6 +18,7 @@ export const setupSwagger = (app: Application) => {
   });
 
   registerAuthSwagger(registry);
+  registerRoomSwagger(registry);
 
   const generator = new OpenApiGeneratorV3(registry.definitions);
 
